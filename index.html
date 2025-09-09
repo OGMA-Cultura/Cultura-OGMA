@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Grupos - Evento</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background: url("fundo.jpg");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9); /* semi-transparente */
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+      width: 380px;
+      text-align: center;
+    }
+    .logo {
+      max-width: 120px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 12px;
+      width: 90%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="logo.png" alt="Logo da Empresa" class="logo">
+    <h2>Consulta de Grupo</h2>
+    <input type="text" id="numero" placeholder="Digite o seu número">
+    <button onclick="consultarGrupo()">Ver Grupo</button>
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    let colaboradores = [];
+
+    // Carrega o CSV com os dados
+    Papa.parse("colaboradores.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        colaboradores = results.data;
+      }
+    });
+
+    function consultarGrupo() {
+      const numero = document.getElementById("numero").value.trim();
+      const resultadoDiv = document.getElementById("resultado");
+
+      const colaborador = colaboradores.find(c => c.Numero === numero);
+
+      if (colaborador) {
+        resultadoDiv.innerHTML = `Olá <b>${colaborador.Nome}</b>, você está no <b>${colaborador.Grupo}</b> 🎉`;
+      } else {
+        resultadoDiv.innerHTML = "Número não encontrado. Verifique os dados.";
+      }
+    }
+  </script>
+</body>
+</html>
