@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Consulta de Grupos - Evento</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,34 +47,33 @@
 <body>
   <div class="card">
     <h2>Consulta de Grupo</h2>
-    <input type="text" id="nome" placeholder="Digite o seu nome">
     <input type="text" id="numero" placeholder="Digite o seu número">
     <button onclick="consultarGrupo()">Ver Grupo</button>
     <div class="resultado" id="resultado"></div>
   </div>
 
   <script>
-    // Exemplo de dados: lista de colaboradores
-    const colaboradores = [
-      { nome: "Ana Silva", numero: "101", grupo: "Grupo A" },
-      { nome: "Carlos Santos", numero: "102", grupo: "Grupo B" },
-      { nome: "Mariana Costa", numero: "103", grupo: "Grupo C" },
-      { nome: "João Pereira", numero: "104", grupo: "Grupo A" }
-    ];
+    let colaboradores = [];
+
+    // Carrega o CSV com os dados
+    Papa.parse("colaboradores.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        colaboradores = results.data;
+      }
+    });
 
     function consultarGrupo() {
-      const nome = document.getElementById("nome").value.trim().toLowerCase();
       const numero = document.getElementById("numero").value.trim();
       const resultadoDiv = document.getElementById("resultado");
 
-      const colaborador = colaboradores.find(c => 
-        c.nome.toLowerCase() === nome && c.numero === numero
-      );
+      const colaborador = colaboradores.find(c => c.Numero === numero);
 
       if (colaborador) {
-        resultadoDiv.innerHTML = `Olá <b>${colaborador.nome}</b>, você está no <b>${colaborador.grupo}</b> 🎉`;
+        resultadoDiv.innerHTML = `Olá <b>${colaborador.Nome}</b>, você está no <b>${colaborador.Grupo}</b> 🎉`;
       } else {
-        resultadoDiv.innerHTML = "Colaborador não encontrado. Verifique os dados.";
+        resultadoDiv.innerHTML = "Número não encontrado. Verifique os dados.";
       }
     }
   </script>
