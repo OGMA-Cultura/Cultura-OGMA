@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Grupos - Evento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 90%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Consulta de Grupo</h2>
+    <input type="text" id="nome" placeholder="Digite o seu nome">
+    <input type="text" id="numero" placeholder="Digite o seu número">
+    <button onclick="consultarGrupo()">Ver Grupo</button>
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    // Exemplo de dados: lista de colaboradores
+    const colaboradores = [
+      { nome: "Ana Silva", numero: "101", grupo: "Grupo A" },
+      { nome: "Carlos Santos", numero: "102", grupo: "Grupo B" },
+      { nome: "Mariana Costa", numero: "103", grupo: "Grupo C" },
+      { nome: "João Pereira", numero: "104", grupo: "Grupo A" }
+    ];
+
+    function consultarGrupo() {
+      const nome = document.getElementById("nome").value.trim().toLowerCase();
+      const numero = document.getElementById("numero").value.trim();
+      const resultadoDiv = document.getElementById("resultado");
+
+      const colaborador = colaboradores.find(c => 
+        c.nome.toLowerCase() === nome && c.numero === numero
+      );
+
+      if (colaborador) {
+        resultadoDiv.innerHTML = `Olá <b>${colaborador.nome}</b>, você está no <b>${colaborador.grupo}</b> 🎉`;
+      } else {
+        resultadoDiv.innerHTML = "Colaborador não encontrado. Verifique os dados.";
+      }
+    }
+  </script>
+</body>
+</html>
