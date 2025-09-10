@@ -124,7 +124,20 @@
       const colaborador = colaboradores.find(c => c.Numero === numero);
 
       if (colaborador) {
-        resultadoDiv.innerHTML = `Olá <b>${colaborador.Nome}</b>, você está no <b>${colaborador.Grupo}</b> 🎉`;
+        resultadoDiv.innerHTML = `Olá <b>${colaborador.Nome}</b>, você está no <b>${colaborador.Grupo}</b> 🎉`
+          <br><br>
+    <a href="agenda.pdf" target="_blank" style="
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:#28a745;
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:16px;
+    ">📅 Ver Agenda do Evento</a>
+  `;
       } else {
         resultadoDiv.innerHTML = "Número não encontrado. Verifique os dados.";
       }
@@ -132,5 +145,6 @@
   </script>
 </body>
 </html>
+
 
 
