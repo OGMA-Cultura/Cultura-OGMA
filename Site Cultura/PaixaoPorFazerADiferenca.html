@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Ser Aberto Ao Falar E Ao Ouvir</title>
+	<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/effra">
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Effra', sans-serif; color: #333; }
+
+	/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  color: white;
+}
+.navbar .logo img { height: 50px; cursor: pointer; }
+.nav-links { list-style: none; display: flex; gap: 13px; }
+.nav-links li a {
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+	}
+.nav-links li a:hover { color: #13253b;
+		transition: color 0.3s; }
+.menu-toggle { display: none; font-size: 28px; cursor: pointer; }
+
+/* RESPONSIVO NAVBAR */
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(0,0,0,0.9); position: absolute; top: 60px; left: 0; }
+  .nav-links li { text-align: center; margin: 15px 0; }
+  .menu-toggle { display: block; }
+  .nav-links.active { display: flex; }
+}
+		
+		/* FAIXA HORIZONTAL */
+  .top-banner {
+    width: 100%;
+    height: 300px;
+    background: url('Cultura OGMA/Novos/Cultura OGMA-10.jpg') center/cover no-repeat;
+  }
+
+  /* SEÇÃO IMAGEM + TEXTO */
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 50px 10%;
+    gap: 20px;
+    background: #f8f8f8;
+  }
+  .section-content img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+  }
+  .section-content .text {
+    flex: 1;
+  }
+  .section-content .text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  .section-content .text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* RESPONSIVO */
+  @media(max-width:768px) {
+    .section-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .section-content img { width: 80%; }
+    .section-content .text h2 { font-size: 1.5rem; }
+  }
+		
+</style>
+</head>
+
+<body>
+	
+	<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="Cultura OGMA/Logo_OGMA_EMBRAER_WHITE.PNG" alt="Logo"></a>
+  </div>
+  <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+      <li><a href="OneTeam.html">One Team</a></li>
+      <li><a href="SerResponsavelPelosResultadosDaEmpresa.html">Ser Responsável Pelos Resultados da Empresa</a></li>
+      <li><a href="SerAbertoAoFalarEAoOuvir.html">Ser Aberto ao Falar e ao Ouvir</a></li>
+	<li><a href="TratarAComplexidadeComSimplicidade.html">Tratar a Complexidade com Simplicidade</a></li>
+		<li><a href="PaixaoPorFazerADiferenca.html">Paixão por Fazer a Diferença</a></li>
+  </ul>
+</nav>
+
+	<!-- FAIXA HORIZONTAL -->
+<div class="top-banner"></div>
+
+<!-- SEÇÃO IMAGEM + TEXTO -->
+<section class="section-content">
+  <img src="Cultura OGMA/Novos/Cultura OGMA-09.jpg" alt="Foto vertical">
+  <div class="text">
+    <h2>Paixão por Fazer a Diferença</h2>
+	  <br>
+    <p><b> Queremos entregar o nosso melhor aos nossos Clientes, mas também aosnossos parceiros e colegas. Queremos diferenciar-nos, por fazemos o nosso melhor e pela paixão que cada um de nós coloca no seu trabalho e no seu dia-a-dia.</b> <br><br>Este pilar reflete o compromisso de entregar excelência e de inspirar positivamente os outros, colocando Paixão em tudo o que fazemos. Para vivê-lo, devemos adotar os seguintes comportamentos:
+<br>
+<br>
+
+		<b>Celebre Conquistas e valorize a nossa História</b>
+<br>
+ <br>
+
+<b>Viva cada dia como se fosse um primeiro Voo</b>
+<br>
+<br>
+
+		<b>Lidere com Coração, respeite a Diversidade e valorize as nossas Pessoas</b>
+<br>
+<br>
+<b>Entregue o melhor valor para os nossos Clientes e para os nossos Parceiros</b>
+<br>
+<br>
+		<i><b>#Paixão</b></i>
+<br>
+		Quando colocamos paixão no que fazemos, destacamo-nos pela energia, criatividade e impacto positivo. Este pilar é o motor que nos diferencia, une e inspira a transformar o nosso trabalho numa experiência memorável para clientes, colegas e parceiros.</p>
+  </div>
+</section>
+
+<!-- SCRIPT MENU HAMBURGER -->
+<script>
+  // Menu hamburger
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+	</script>
+</body>
+</html>

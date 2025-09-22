@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Tratar A Complexidade Com Simplicidade</title>
+	<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/effra">
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Effra', sans-serif; color: #333; }
+
+	/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  color: white;
+}
+.navbar .logo img { height: 50px; cursor: pointer; }
+.nav-links { list-style: none; display: flex; gap: 13px; }
+.nav-links li a {
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+	}
+.nav-links li a:hover { color: #13253b;
+		transition: color 0.3s; }
+.menu-toggle { display: none; font-size: 28px; cursor: pointer; }
+
+/* RESPONSIVO NAVBAR */
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(0,0,0,0.9); position: absolute; top: 60px; left: 0; }
+  .nav-links li { text-align: center; margin: 15px 0; }
+  .menu-toggle { display: block; }
+  .nav-links.active { display: flex; }
+}
+		
+		/* FAIXA HORIZONTAL */
+  .top-banner {
+    width: 100%;
+    height: 300px;
+    background: url('Cultura OGMA/Novos/Cultura OGMA-08.jpg') center/cover no-repeat;
+  }
+
+  /* SEÇÃO IMAGEM + TEXTO */
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 50px 10%;
+    gap: 20px;
+    background: #f8f8f8;
+  }
+  .section-content img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+  }
+  .section-content .text {
+    flex: 1;
+  }
+  .section-content .text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  .section-content .text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* RESPONSIVO */
+  @media(max-width:768px) {
+    .section-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .section-content img { width: 80%; }
+    .section-content .text h2 { font-size: 1.5rem; }
+  }
+		
+</style>
+</head>
+
+<body>
+	
+	<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="Cultura OGMA/Logo_OGMA_EMBRAER_WHITE.PNG" alt="Logo"></a>
+  </div>
+  <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+      <li><a href="OneTeam.html">One Team</a></li>
+      <li><a href="SerResponsavelPelosResultadosDaEmpresa.html">Ser Responsável Pelos Resultados da Empresa</a></li>
+      <li><a href="SerAbertoAoFalarEAoOuvir.html">Ser Aberto ao Falar e ao Ouvir</a></li>
+	<li><a href="TratarAComplexidadeComSimplicidade.html">Tratar a Complexidade com Simplicidade</a></li>
+		<li><a href="PaixaoPorFazerADiferenca.html">Paixão por Fazer a Diferença</a></li>
+  </ul>
+</nav>
+
+	<!-- FAIXA HORIZONTAL -->
+<div class="top-banner"></div>
+
+<!-- SEÇÃO IMAGEM + TEXTO -->
+<section class="section-content">
+  <img src="Cultura OGMA/Novos/Cultura OGMA-07.jpg" alt="Foto vertical">
+  <div class="text">
+    <h2>Tratar a Complexidade com Simplicidade</h2>
+	  <br>
+    <p><b> As soluções simples são, sempre, as mais fáceis de comunicar e implementar,
+por isso olhe para o seu dia-a-dia e encontre oportunidades para simplificar.</b> <br><br> Este pilar encoraja-nos a enfrentar desafios complexos com soluções claras, eficientes
+e práticas. Para adotar este princípio no dia a dia, os seguintes comportamentos são
+essenciais:
+<br>
+<br>
+
+		<b>Foque-se apenas no que agrega Valor</b>
+<br>
+ <br>
+
+<b>Procure entender os Porquês antes de agir</b>
+<br>
+<br>
+
+		<b>Procure a Excelência mas evite preciosismos</b>
+<br>
+<br>
+
+		<i><b>#Simplificar</b></i>
+<br>
+		Tratar a complexidade com simplicidade é uma atitude que promove a eficiência, a
+clareza e a produtividade. Quando simplificamos, comunicamos melhor, reduzimos
+erros e criamos um ambiente mais ágil e colaborativo, permitindo à OGMA alcançar
+resultados de forma mais eficaz.</p>
+  </div>
+</section>
+
+<!-- SCRIPT MENU HAMBURGER -->
+<script>
+  // Menu hamburger
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+	</script>
+</body>
+</html>
